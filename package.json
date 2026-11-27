@@ -1,0 +1,32 @@
+{
+  "name": "projectcore",
+  "version": "0.1.7",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": "24.x"
+  },
+  "scripts": {
+    "build": "prisma generate && tsc --noEmit && vite build",
+    "start": "node backend/src/server.mjs",
+    "db:migrate": "prisma migrate deploy",
+    "db:seed": "node --env-file-if-exists=.env backend/src/seed.mjs",
+    "postinstall": "npm run build && node scripts/hostinger-migrate.mjs"
+  },
+  "dependencies": {
+    "@prisma/client": "6.19.0",
+    "@types/react": "19.1.16",
+    "@types/react-dom": "19.1.9",
+    "bcryptjs": "3.0.2",
+    "express": "5.1.0",
+    "express-rate-limit": "8.1.0",
+    "helmet": "8.1.0",
+    "pdfkit": "0.21.0",
+    "prisma": "6.19.0",
+    "react": "19.1.1",
+    "react-dom": "19.1.1",
+    "typescript": "5.9.3",
+    "vite": "7.1.12",
+    "zod": "4.1.12"
+  }
+}
